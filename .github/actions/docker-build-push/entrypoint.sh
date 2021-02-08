@@ -5,9 +5,6 @@ set -eu
 
 INPUT_IMAGE_NAME=${INPUT_IMAGE_NAME:-"${GITHUB_REPOSITORY#*/}"}
 
-# switch to working directory
-cd ${INPUT_WORKING_DIRECTORY}
-
 # log into docker registry
 echo ${INPUT_REGISTRY_PASSWORD} | docker login -u ${INPUT_REGISTRY_USERNAME} --password-stdin ${INPUT_REGISTRY_URL}
 
