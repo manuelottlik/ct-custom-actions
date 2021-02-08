@@ -3,8 +3,9 @@
 # makes the script existing once an error occours
 set -eu
 
+
 INPUT_REGISTRY_PASSWORD=${$INPUT_REGISTRY_PASSWORD:-$GITHUB_TOKEN}
-INPUT_IMAGE_NAME=${INPUT_IMAGE_NAME:-$GH_REPO}
+INPUT_IMAGE_NAME=${INPUT_IMAGE_NAME:-${GITHUB_REPOSITORY#*/}}
 
 # switch to working directory
 cd ${INPUT_WORKING_DIRECTORY}
