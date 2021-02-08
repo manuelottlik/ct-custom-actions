@@ -10,3 +10,5 @@ jobs:
 
       - name: "Docker-Image bauen"
         uses: ./.github/actions/docker-build-push
+        with:
+          registry_password: ${{ secrets.GITHUB_TOKEN }}
