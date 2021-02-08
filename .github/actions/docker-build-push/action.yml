@@ -1,6 +1,6 @@
 name: "build docker image"
 description: "builds docker image"
-author: "eDACT"
+author: "c't"
 
 inputs:
   registry_url:
