@@ -1,0 +1,12 @@
+name: build feature
+on: [push]
+jobs:
+  build-docker:
+    name: build docker image
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Repository auschecken"
+        uses: actions/checkout@master
+
+      - name: "Docker-Image bauen"
+        uses: ./.github/actions/docker-build-push
