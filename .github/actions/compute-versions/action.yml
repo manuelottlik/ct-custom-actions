@@ -1,6 +1,0 @@
-name: "compute version strings"
-description: "computes version strings based on GITHUB_REF for major, minor and patch version available in steps.<step_id>.outputs.version_{major/minor/patch}"
-author: "c't"
-runs:
-  using: "docker"
-  image: "Dockerfile"

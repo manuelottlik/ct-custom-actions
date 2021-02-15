@@ -1,7 +1,7 @@
-#!/bin/sh -l
+#!/bin/bash
 
 # makes the script existing once an error occours
-set -eu
+set -euo pipefail
 
 INPUT_IMAGE_NAME=${INPUT_IMAGE_NAME:-"${GITHUB_REPOSITORY#*/}"}
 
@@ -10,12 +10,6 @@ echo ${INPUT_REGISTRY_PASSWORD} | docker login -u ${INPUT_REGISTRY_USERNAME} --p
 
 FULL_IMAGE_NAME=${INPUT_REGISTRY_URL}/${GITHUB_REPOSITORY}/${INPUT_IMAGE_NAME}:${INPUT_IMAGE_TAG}
 
-# build image
-echo "::group::Build image"
 docker build --tag ${FULL_IMAGE_NAME} .
-echo "::endgroup::"
 
-# push image to registry
-echo "::group::Push image"
 docker push ${FULL_IMAGE_NAME}
-echo "::endgroup::"
