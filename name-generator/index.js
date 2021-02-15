@@ -1,15 +1,21 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
+const { uniqueNamesGenerator, adjectives, colors, animals } = require('unique-names-generator');
 
 try {
-  // `who-to-greet` input defined in action metadata file
-  const nameToGreet = core.getInput('who-to-greet');
-  console.log(`Hello ${nameToGreet}!`);
-  const time = (new Date()).toTimeString();
-  core.setOutput("time", time);
-  // Get the JSON webhook payload for the event that triggered the workflow
-  const payload = JSON.stringify(github.context.payload, undefined, 2)
-  console.log(`The event payload: ${payload}`);
+
+  const dicts = {
+    '1': [animals],
+    '2': [adjectives, animals],
+    '3': [colors, adjectives, animals],
+  }[core.getInput('length')]
+
+  const randomName = uniqueNamesGenerator({
+    dictionaries: dicts,
+    separator: core.getInput('separator'),
+  });
+  
+  core.setOutput("random-name", randomName);
 } catch (error) {
   core.setFailed(error.message);
 }
