@@ -1,28 +1,28 @@
-name: "build docker image"
-description: "builds docker image"
+name: "Docker-Container bauen"
+description: "Baut einen Docker-Container und nutzt dafür eigene Standardwerte."
 author: "c't"
 
 inputs:
   registry_url:
-    description: "URL of the docker registry, no trailing slashes"
+    description: "URL der Docker Registry, ohne Slash am Ende."
     required: false
     default: "docker.pkg.github.com"
 
   registry_username:
-    description: "username for registry"
+    description: "Benutzername, mit dem sich an der Registry angemeldet wird."
     required: false
     default: "publisher"
   
   registry_password:
-    description: "token for registry"
+    description: "Passwort / Token, mit dem sich an der Registry angemeldet wird."
     required: true
   
   image_name:
-    description: "name of the image"
-    required: false
+    description: "Name des Docker-Images."
+    required: true
   
   image_tag:
-    description: "list of tags, seperated by comma"
+    description: "Tag des Docker-Images."
     required: false
     default: "latest"
 
