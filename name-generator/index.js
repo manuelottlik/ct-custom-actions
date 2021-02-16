@@ -3,7 +3,6 @@ const github = require('@actions/github');
 const { uniqueNamesGenerator, adjectives, colors, animals } = require('unique-names-generator');
 
 try {
-
   const dicts = {
     '1': [animals],
     '2': [adjectives, animals],

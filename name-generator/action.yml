@@ -12,6 +12,10 @@ inputs:
     required: false
     default: "3"
 
+outputs:
+  random-name:
+    description: "Generierter zufälliger Name."
+
 runs:
   using: "node12"
   main: "index.js"
